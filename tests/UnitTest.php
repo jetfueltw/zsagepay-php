@@ -9,8 +9,16 @@ use Jetfuel\Zsagepay\TradeQuery;
 
 class UnitTest extends PHPUnit\Framework\TestCase
 {
-    private $merchantId = '1000000001';
-    private $secretKey  = '123456ADSEF';
+    private $merchantId;
+    private $secretKey;
+
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+        $this->merchantId = getenv('MERCHANT_ID');
+        $this->secretKey = getenv('SECRET_KEY');
+    }
 
     public function testDigitalPaymentOrder()
     {

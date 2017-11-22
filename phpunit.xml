@@ -14,4 +14,8 @@
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="MERCHANT_ID" value="1000000001"/>
+        <env name="SECRET_KEY" value="123456ADSEF"/>
+    </php>
 </phpunit>
