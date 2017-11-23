@@ -1,7 +1,7 @@
 <?php
 
-use Jetfuel\Zsagepay\Constants\Channel;
 use Jetfuel\Zsagepay\Constants\Bank;
+use Jetfuel\Zsagepay\Constants\Channel;
 use Jetfuel\Zsagepay\Traits\NotifyWebhook;
 use Jetfuel\Zsagepay\DigitalPayment;
 use Jetfuel\Zsagepay\BankPayment;

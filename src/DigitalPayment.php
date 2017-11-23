@@ -8,7 +8,6 @@ class DigitalPayment extends Payment
 {
     use ResultParser;
 
-    const BASE_API_URL   = 'http://payment.zsagepay.com/';
     const MODEL          = 'QR_CODE';
     const CREDIT_SUPPORT = 1;
 
@@ -21,8 +20,6 @@ class DigitalPayment extends Payment
      */
     public function __construct($merchantId, $secretKey, $baseApiUrl = null)
     {
-        $baseApiUrl = $baseApiUrl === null ? self::BASE_API_URL : $baseApiUrl;
-
         parent::__construct($merchantId, $secretKey, $baseApiUrl);
     }
 

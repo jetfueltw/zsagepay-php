@@ -4,7 +4,6 @@ namespace Jetfuel\Zsagepay;
 
 class BankPayment extends Payment
 {
-    const BASE_API_URL   = 'http://payment.zsagepay.com/';
     const BANK_CARD_TYPE = '01';
 
     /**
@@ -16,8 +15,6 @@ class BankPayment extends Payment
      */
     public function __construct($merchantId, $secretKey, $baseApiUrl = null)
     {
-        $baseApiUrl = $baseApiUrl === null ? self::BASE_API_URL : $baseApiUrl;
-
         parent::__construct($merchantId, $secretKey, $baseApiUrl);
     }
 

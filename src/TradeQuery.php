@@ -8,8 +8,6 @@ class TradeQuery extends Payment
 {
     use ResultParser;
 
-    const BASE_API_URL = 'http://payment.zsagepay.com/';
-
     /**
      * DigitalPayment constructor.
      *
@@ -19,8 +17,6 @@ class TradeQuery extends Payment
      */
     public function __construct($merchantId, $secretKey, $baseApiUrl = null)
     {
-        $baseApiUrl = $baseApiUrl === null ? self::BASE_API_URL : $baseApiUrl;
-
         parent::__construct($merchantId, $secretKey, $baseApiUrl);
     }
 
