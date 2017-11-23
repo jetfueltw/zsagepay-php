@@ -39,7 +39,7 @@ class Payment
      *
      * @param string $merchantId
      * @param string $secretKey
-     * @param string $baseApiUrl
+     * @param null|string $baseApiUrl
      */
     protected function __construct($merchantId, $secretKey, $baseApiUrl = null)
     {

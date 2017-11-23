@@ -1,13 +1,17 @@
 <?php
 
+namespace Test;
+
+use Faker\Factory;
+use Jetfuel\Zsagepay\BankPayment;
 use Jetfuel\Zsagepay\Constants\Bank;
 use Jetfuel\Zsagepay\Constants\Channel;
-use Jetfuel\Zsagepay\Traits\NotifyWebhook;
 use Jetfuel\Zsagepay\DigitalPayment;
-use Jetfuel\Zsagepay\BankPayment;
 use Jetfuel\Zsagepay\TradeQuery;
+use Jetfuel\Zsagepay\Traits\NotifyWebhook;
+use PHPUnit\Framework\TestCase;
 
-class UnitTest extends PHPUnit\Framework\TestCase
+class UnitTest extends TestCase
 {
     private $merchantId;
     private $secretKey;
@@ -22,7 +26,7 @@ class UnitTest extends PHPUnit\Framework\TestCase
 
     public function testDigitalPaymentOrder()
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $tradeNo = $faker->uuid;
         $channel = Channel::WECHAT;
         $amount = 1;
@@ -65,7 +69,7 @@ class UnitTest extends PHPUnit\Framework\TestCase
 
     public function testBankPaymentOrder()
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $tradeNo = $faker->uuid;
         $bank = Bank::CCB;
         $amount = 1;
@@ -108,7 +112,7 @@ class UnitTest extends PHPUnit\Framework\TestCase
 
     public function testTradeQueryFindOrderNotExist()
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $tradeNo = $faker->uuid;
 
         $tradeQuery = new TradeQuery($this->merchantId, $this->secretKey);
@@ -119,7 +123,7 @@ class UnitTest extends PHPUnit\Framework\TestCase
 
     public function testTradeQueryIsPaidOrderNotExist()
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $tradeNo = $faker->uuid;
 
         $tradeQuery = new TradeQuery($this->merchantId, $this->secretKey);

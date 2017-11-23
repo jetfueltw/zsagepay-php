@@ -23,7 +23,7 @@ class TradeQuery extends Payment
     /**
      * Find Order by trade number.
      *
-     * @param $tradeNo
+     * @param string $tradeNo
      * @return array|null
      */
     public function find($tradeNo)
@@ -46,7 +46,7 @@ class TradeQuery extends Payment
     /**
      * Is order already paid.
      *
-     * @param $tradeNo
+     * @param string $tradeNo
      * @return bool
      */
     public function isPaid($tradeNo)

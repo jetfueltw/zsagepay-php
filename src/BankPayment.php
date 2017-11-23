@@ -23,7 +23,7 @@ class BankPayment extends Payment
      *
      * @param string $tradeNo
      * @param string $bank
-     * @param int $amount
+     * @param float $amount
      * @param string $returnUrl
      * @param string $notifyUrl
      * @return string
