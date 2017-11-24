@@ -125,12 +125,12 @@ $secretKey = 'XXXXXXXXXXXXXXX'; // md5 密鑰
 $tradeNo = '20170101235959XXX'; // 商家產生的唯一訂單號
 $bank = Bank::CCB; // 銀行編號
 $amount = 1.00; // 消費金額 (元)
-$returnUrl = 'https://XXX.XXX.XXX'; // 交易完成後會跳轉到這個頁面
 $notifyUrl = 'https://XXX.XXX.XXX'; // 交易完成後異步通知接口
+$returnUrl = 'https://XXX.XXX.XXX'; // 交易完成後會跳轉到這個頁面
 ```
 ```
 $payment = new BankPayment($merchantId, $secretKey);
-$result = $payment->order($tradeNo, $bank, $amount, $returnUrl, $notifyUrl);
+$result = $payment->order($tradeNo, $bank, $amount, $notifyUrl, $returnUrl);
 ```
 ```
 Result:
