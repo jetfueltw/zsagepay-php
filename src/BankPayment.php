@@ -24,11 +24,11 @@ class BankPayment extends Payment
      * @param string $tradeNo
      * @param string $bank
      * @param float $amount
-     * @param string $returnUrl
      * @param string $notifyUrl
+     * @param string $returnUrl
      * @return string
      */
-    public function order($tradeNo, $bank, $amount, $returnUrl, $notifyUrl)
+    public function order($tradeNo, $bank, $amount, $notifyUrl, $returnUrl)
     {
         $payload = $this->signPayload([
             'outOrderId'      => $tradeNo,
@@ -38,8 +38,8 @@ class BankPayment extends Payment
         ]);
 
         $payload['bankCode'] = $bank;
-        $payload['merUrl'] = $returnUrl;
         $payload['noticeUrl'] = $notifyUrl;
+        $payload['merUrl'] = $returnUrl;
         $payload['bankCardType'] = self::BANK_CARD_TYPE;
 
         return $this->httpClient->post('ebank/pay.do', $payload);
