@@ -9,7 +9,7 @@ class Payment
 {
     use ConvertMoney;
 
-    const BASE_API_URL   = 'http://payment.zsagepay.com/';
+    const BASE_API_URL   = 'http://gateway.clpayment.com/';
     const TIME_ZONE      = 'Asia/Shanghai';
     const TIME_FORMAT    = 'YmdHis';
     const PAYMENT_EXPIRE = 8 * 60;

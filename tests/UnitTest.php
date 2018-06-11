@@ -8,6 +8,7 @@ use Jetfuel\Zsagepay\Constants\Bank;
 use Jetfuel\Zsagepay\Constants\Channel;
 use Jetfuel\Zsagepay\DigitalPayment;
 use Jetfuel\Zsagepay\TradeQuery;
+use Jetfuel\Zsagepay\BalanceQuery;
 use Jetfuel\Zsagepay\Traits\NotifyWebhook;
 use PHPUnit\Framework\TestCase;
 
@@ -35,6 +36,7 @@ class UnitTest extends TestCase
 
         $payment = new DigitalPayment($this->merchantId, $this->secretKey);
         $result = $payment->order($tradeNo, $channel, $amount, $clientIp, $notifyUrl);
+        var_dump($result);
 
         $this->assertEquals('00', $result['code']);
 
@@ -79,6 +81,7 @@ class UnitTest extends TestCase
         $payment = new BankPayment($this->merchantId, $this->secretKey);
         $result = $payment->order($tradeNo, $bank, $amount, $returnUrl, $notifyUrl);
 
+        var_dump($result);
         $this->assertContains('<form', $result, '', true);
 
         return $tradeNo;
@@ -182,5 +185,14 @@ class UnitTest extends TestCase
         $mock = $this->getMockForTrait(NotifyWebhook::class);
 
         $this->assertEquals('{"code":"00"}', $mock->successNotifyResponse());
+    }
+
+    public function testBlanceQuery()
+    {
+        $balance = new BalanceQuery($this->merchantId, $this->secretKey);
+        $result = $balance->query();
+        var_dump($result);
+
+        //$this->assertEquals('SUCCESS', $result['auth_result']);
     }
 }
